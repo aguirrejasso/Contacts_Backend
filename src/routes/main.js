@@ -30,4 +30,20 @@ router.get('/api/contacts/:name?', (req, res) =>{
     }
 });
 
+router.post('/api/contacts/', (req, res) => {
+
+    const { name, number_phone, photo, email, facebook, twitter, instagram} = req.body;
+
+    const query = `INSERT INTO contacts(name, number_phone, photo, email, facebook, twitter, instagram) 
+                   VALUES("${name}", ${number_phone}, "${photo}", "${email}", "${facebook}", "${twitter}", "${instagram}")`;
+
+    mysqlConnection.query(query, (err, rows, fields) => {
+        if(!err){
+            res.json({Status: 'Contact saved'});
+        }else{
+            console.log(err);
+        }
+    })
+});
+
 module.exports = router;
