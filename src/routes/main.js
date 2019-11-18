@@ -43,6 +43,17 @@ router.post('/api/contacts/', (req, res) => {
         }else{
             console.log(err);
         }
+    });
+});
+
+router.delete('/api/contacts/:id', (req, res) =>{
+    const { id } = req.params;
+    mysqlConnection.query(`DELETE FROM contacts WHERE id = ${id}`, (err, row, fields) => {
+        if(!err){
+            res.json({Status: "Conctact deleted"});
+        }else{
+            console.log(err)
+        }
     })
 });
 
