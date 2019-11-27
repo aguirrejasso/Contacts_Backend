@@ -1,11 +1,10 @@
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "contacts",
-  port: 3307
+  host: "bvbtzpoqavlbsscfxjx4-mysql.services.clever-cloud.com",
+  user: "un7sty5i2d3becy4",
+  password: "R0MmvODqpAaOHr026Jjf",
+  database: "bvbtzpoqavlbsscfxjx4"
 });
 
 connection.connect(function(err) {

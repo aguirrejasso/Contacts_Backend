@@ -1,14 +1,16 @@
 {
-  "name": "REST_API",
+  "name": "agend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "build": "node src/index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Angel Ernesto Aguirre Jasso",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",

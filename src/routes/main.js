@@ -46,6 +46,22 @@ router.post('/api/contacts/', (req, res) => {
     });
 });
 
+router.put('/api/contacts/:id', (req, res) => {
+    const { name, number_phone, photo, email, facebook, twitter, instagram} = req.body;
+    const { id } = req.params;
+
+    const query = `UPDATE contacts SET name = "${name}", number_phone = ${number_phone}, photo = "${photo}", email = "${email}",
+                facebook = "${facebook}", twitter = "${twitter}", instagram = "${instagram}" WHERE id = ?`;
+
+    mysqlConnection.query(query, [id], (err, rows, fields) => {
+        if(!err){
+            res.json(rows);
+        }else{
+            console.log(err);
+        }
+    });
+});
+
 router.delete('/api/contacts/:id', (req, res) =>{
     const { id } = req.params;
     mysqlConnection.query(`DELETE FROM contacts WHERE id = ${id}`, (err, row, fields) => {
